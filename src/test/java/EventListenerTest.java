@@ -1,7 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
 import java.util.Map;
 
 public class EventListenerTest {
@@ -34,10 +33,9 @@ public class EventListenerTest {
 
     class TrackerMock implements Tracker {
 
-        public boolean itemWasPushed;
-        public boolean eventWasHandled;
+        public Boolean itemWasPushed;
+        public Boolean eventWasHandled = true;
 
-        @Override
         public Map<String, Integer> tracker() {
             return null;
         }
@@ -48,7 +46,7 @@ public class EventListenerTest {
         }
 
         @Override
-        public boolean has(String message) {
+        public Boolean has(String message) {
             return true;
         }
 

@@ -34,7 +34,9 @@ public class EventTracker implements Tracker {
             tracker.replace(message,tracker.get(message) - 1);
         }
     }
-
+    synchronized public Map<String ,Integer> tracker(){
+        return tracker;
+    }
     // Do not use this. This constructor is for tests only
     // Using it breaks the singleton class
     EventTracker(Map<String, Integer> tracker) {

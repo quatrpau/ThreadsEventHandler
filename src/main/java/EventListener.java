@@ -21,27 +21,19 @@ public class EventListener extends Thread {
             if(shouldReply()){
                 eventTracker.handle(messageToListenFor, this::reply);
             }
-
         }
     }
 
     public Boolean readyToQuit() {
-        //should this be synced?
-        if(this.eventTracker.has("quit")){
-            return true;
-        }
-        return false;
+        return this.eventTracker.has("quit");
     }
 
     public Boolean shouldReply() {
-        //should this be set to true if there is a matching message at all or if its being handled?
-        if(this.eventTracker.has(messageToListenFor)){
-            return true;
-        }
-        return false;
+        return this.eventTracker.has(messageToListenFor);
     }
 
     public void reply() {
         System.out.println(messageToReplyWith);
+
     }
 }
